@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.principal{
+    margin-left: 5%;
+    margin-right:5%;
+    margin-bottom:2%;
+}
+
+.titulo-principal {
+    padding-top: 5%;
+}
+
+.navegacao {
+    margin-right: 5%;
+}
+
+.navegacao a{
+    padding: 18px;
+}
+
+header {
+    background: lightblue;
+    top: 0;
+    width: 100%;
+    position: fixed;
+}
+
+header p {
+    margin-left: 5%;
+}
+
+footer {
+    background: lightsalmon;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2%;
+}
+
+.items-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.categorias {
+    margin-right: 5%;
+}
