@@ -33,6 +33,8 @@ footer {
     bottom: 0;
     width: 100%;
     text-align: center;
+    height: 6vh;
+    line-height: 6vh;
 }
 
 footer p {
