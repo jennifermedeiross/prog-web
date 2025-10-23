@@ -1,12 +1,14 @@
 body {
     margin: 0;
     padding: 0;
+    height: 100vh;
 }
 
 .principal{
     margin-left: 5%;
     margin-right:5%;
     margin-bottom:2%;
+    margin-top: 5%;
 }
 
 .titulo-principal {
@@ -49,10 +51,13 @@ footer {
 
 .container{
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: space-between;
+    height: 100%;
 }
 
-.categorias {
-    margin-right: 5%;
+.category {
+    margin-top: 5%;
+    background: lightgreen;
+    width: 100%;
 }
