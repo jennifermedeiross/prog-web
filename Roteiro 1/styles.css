@@ -1,0 +1,137 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f8f8f8;
+  padding-top: 15vh;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 15px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.8),
+      rgba(0, 0, 0, 0.6)
+    ),
+    url("./assets/header-bg.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+nav ul {
+  list-style-type: none;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+  width: 100%;
+}
+
+nav ul li:last-child {
+  margin-right: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease;
+  border-radius: 6px;
+}
+
+nav ul li a:hover {
+  background-color: #bbbbbb;
+  opacity: 0.5;
+  scale: 1.05;
+  color: #333;
+}
+
+nav ul li a i {
+  margin-right: 5px;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.container h1 {
+  font-size: 200%;
+}
+
+.cardapio-item h3 {
+  font-size: 24px;
+  font-family: "Roboto", sans-serif;
+  color: #555;
+}
+
+.cardapio-item:hover {
+  transform: translateY(-5px);
+  background-color: #b3b3b3;
+}
+
+.cardapio-item {
+  margin-bottom: 30px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+#sobre {
+  padding-top: 10vh;
+  scroll-margin-top: 50vh;
+}
+
+.section {
+  padding: 2% 0;
+  background-color: #fff;
+}
+
+.section h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.cardapio-item {
+  margin-bottom: 20px;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.8),
+      rgba(0, 0, 0, 0.6)
+    ),
+    url("./assets/footer.jpg");
+  background-size: cover;
+  background-position: center;
+}
