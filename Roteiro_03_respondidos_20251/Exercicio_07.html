@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exercício 07</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      function ordenarLista() {
+        var texto = document.getElementById("txt").value;
+        var arr = texto.split(",");
+        var soma = 0;
+
+        for (var i = 0; i < arr.length; i++) {
+          var num = parseInt(arr[i].trim());
+
+          if (!isNaN(num) && num % 2 !== 0 && num % 3 === 0) {
+            soma += num;
+          }
+        }
+
+        document.write("Soma dos ímpares múltiplos de 3: " + soma);
+      }
+    </script>
+  </head>
+
+  <body>
+    Texto: <input type="text" id="txt" />
+    <input type="button" value="Calcular" onclick="ordenarLista()" />
+  </body>
+</html>

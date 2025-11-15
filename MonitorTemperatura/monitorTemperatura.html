@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Painel de Temperaturas Semanais</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h2>Monitor de Temperaturas Semanais</h2>
+
+    <label for="temperatura">Digite a temperatura (°C):</label><br />
+    <input type="number" id="temperatura" step="0.1" />
+    <button onclick="adicionarTemperatura()">Adicionar Temperatura</button
+    ><br />
+
+    <h3>Temperaturas Inseridas:</h3>
+    <ul id="listaTemperaturas"></ul>
+
+    <button onclick="calcularMedia()">Calcular Média</button>
+    <button onclick="mediaMovel()">Média Móvel (3 em 3 dias)</button>
+    <button onclick="detectarTendencia()">Detectar Tendência (7 dias)</button>
+    <button onclick="alertaExtremos()">Alerta de Temperatura Extrema</button>
+
+    <div id="resultado"></div>
+
+    <script>
+      const temperaturas = [];
+
+      function adicionarTemperatura() {
+        const input = document.getElementById("temperatura");
+        const valor = parseFloat(input.value);
+
+        if (isNaN(valor)) {
+          alert("Por favor, insira um número válido.");
+          return;
+        }
+
+        temperaturas.push(valor);
+
+        const lista = document.getElementById("listaTemperaturas");
+        const item = document.createElement("li");
+        item.textContent = valor + " °C";
+        lista.appendChild(item);
+
+        input.value = "";
+        input.focus();
+      }
+
+      function calcularMedia() {
+        if (temperaturas.length === 0) {
+          alert("Nenhuma temperatura foi inserida.");
+          return;
+        }
+
+        let soma = 0;
+        for (let i = 0; i < temperaturas.length; i++) soma += temperaturas[i];
+        let media = soma / temperaturas.length;
+
+        let mensagem;
+        if (media > 30) mensagem = "A semana está quente! 🔥";
+        else if (media >= 20 && media <= 30) mensagem = "Temperatura amena. 🌤️";
+        else mensagem = "Semana fria! ❄️";
+
+        const resultado = document.getElementById("resultado");
+        resultado.innerHTML = `
+        <p>Média das temperaturas: <strong>${media.toFixed(2)} °C</strong></p>
+        <div>${mensagem}</div>
+      `;
+      }
+
+      function mediaMovel() {
+        if (temperaturas.length < 3) {
+          alert("Insira pelo menos 3 temperaturas.");
+          return;
+        }
+
+        let resultado = [];
+        for (let i = 0; i <= temperaturas.length - 3; i++) {
+          let media =
+            (temperaturas[i] + temperaturas[i + 1] + temperaturas[i + 2]) / 3;
+          resultado.push(media.toFixed(2));
+        }
+
+        document.getElementById("resultado").innerHTML =
+          "<p>Média móvel (3 em 3 dias): " + resultado.join(", ") + "</p>";
+      }
+
+      function detectarTendencia() {
+        if (temperaturas.length < 7) {
+          alert("É necessário ter pelo menos 7 temperaturas.");
+          return;
+        }
+
+        let cres = true;
+        let dec = true;
+
+        for (let i = 0; i < 6; i++) {
+          if (temperaturas[i] >= temperaturas[i + 1]) cres = false;
+          if (temperaturas[i] <= temperaturas[i + 1]) dec = false;
+        }
+
+        let resposta;
+        if (cres) resposta = "Tendência de aquecimento 🔥 (valores crescentes)";
+        else if (dec)
+          resposta = "Tendência de resfriamento ❄️ (valores decrescentes)";
+        else resposta = "Instabilidade 🌪️ (sem padrão definido)";
+
+        document.getElementById("resultado").innerHTML =
+          "<p>" + resposta + "</p>";
+      }
+
+      function alertaExtremos() {
+        if (temperaturas.length === 0) {
+          alert("Insira temperaturas primeiro.");
+          return;
+        }
+
+        let acima = 0;
+        let abaixo = 0;
+        let alerta = false;
+
+        for (let i = 0; i < temperaturas.length; i++) {
+          if (temperaturas[i] > 35) {
+            acima++;
+            abaixo = 0;
+          } else if (temperaturas[i] < 5) {
+            abaixo++;
+            acima = 0;
+          } else {
+            acima = 0;
+            abaixo = 0;
+          }
+
+          if (acima >= 3 || abaixo >= 3) {
+            alerta = true;
+            break;
+          }
+        }
+
+        if (alerta)
+          document.getElementById("resultado").innerHTML =
+            "<p>ALERTA: 3 dias consecutivos de temperatura extrema!</p>";
+        else
+          document.getElementById("resultado").innerHTML =
+            "<p>Nenhum alerta detectado.</p>";
+      }
+    </script>
+  </body>
+</html>

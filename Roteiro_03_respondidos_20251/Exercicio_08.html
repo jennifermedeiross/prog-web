@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exercício 08</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      function ordenarLista() {
+        var texto = document.getElementById("txt").value;
+        var arr = texto.split(",");
+        var resultado = [];
+        for (var i = 0; i < arr.length; i++) {
+          var n = parseInt(arr[i].trim());
+          var f = 1;
+          for (var j = 1; j <= n; j++) f *= j;
+          resultado.push(f);
+        }
+        document.write("Fatoriais: " + resultado.join(","));
+      }
+    </script>
+  </head>
+
+  <body>
+    Texto: <input type="text" id="txt" />
+    <input type="button" value="Calcular" onclick="ordenarLista()" />
+  </body>
+</html>

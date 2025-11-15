@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exercício 09</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      function ordenarLista() {
+        var texto = document.getElementById("txt").value;
+        var arr = texto.split(",");
+        var soma = 0;
+        var pos = 0;
+        var neg = 0;
+        for (var i = 0; i < arr.length; i++) {
+          var n = parseInt(arr[i].trim());
+          soma += n;
+          if (n > 0) pos++;
+          if (n < 0) neg++;
+        }
+        var media = soma / arr.length;
+        var pPos = (pos / arr.length) * 100;
+        var pNeg = (neg / arr.length) * 100;
+        document.write(
+          "Média: " +
+            media +
+            "<br>Positivos: " +
+            pos +
+            "<br>Negativos: " +
+            neg +
+            "<br>% Positivos: " +
+            pPos +
+            "<br>% Negativos: " +
+            pNeg
+        );
+      }
+    </script>
+  </head>
+
+  <body>
+    Texto: <input type="text" id="txt" />
+    <input type="button" value="Calcular" onclick="ordenarLista()" />
+  </body>
+</html>

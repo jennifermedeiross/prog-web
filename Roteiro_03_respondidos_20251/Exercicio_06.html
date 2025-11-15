@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exercício 06</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      function ordenarLista() {
+        var texto = document.getElementById("txt").value;
+        var arr = texto.split(",");
+
+        for (var k = 0; k < arr.length; k++) {
+          arr[k] = arr[k].trim();
+        }
+
+        for (var i = 0; i < arr.length; i++) {
+          for (var j = 0; j < arr.length; j++) {
+            if (arr[i] < arr[j]) {
+              var aux = arr[i];
+              arr[i] = arr[j];
+              arr[j] = aux;
+            }
+          }
+        }
+
+        var textoAux = arr.join(",");
+        document.write("Lista ordenada: " + textoAux);
+      }
+    </script>
+  </head>
+
+  <body>
+    Lista(separar inteiros por vírgula): <input type="text" id="txt" />
+    <input type="button" value="ordenar lista" onclick="ordenarLista()" />
+  </body>
+</html>

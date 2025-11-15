@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exercício 10</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      function ordenarLista() {
+        var texto = document.getElementById("txt").value;
+        var arr = texto.split(",");
+        var inicio = 0;
+        var fim = arr.length - 1;
+        while (inicio < fim) {
+          var aux = arr[inicio];
+          arr[inicio] = arr[fim];
+          arr[fim] = aux;
+          inicio++;
+          fim--;
+        }
+        document.write("Invertida: " + arr.join(","));
+      }
+    </script>
+  </head>
+
+  <body>
+    Texto: <input type="text" id="txt" />
+    <input type="button" value="Inverter" onclick="ordenarLista()" />
+  </body>
+</html>
