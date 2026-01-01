@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styleCarrinho.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <title>Carrinho de Compras</title>
+</head>
+<body>
+    <header>
+        <h1>Prova da Loja de Informática</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html">Produtos</a>
+            <a href="carrinho.html">Carrinho</a>
+            <a href="#">Contato</a>
+        </nav>
+        <div class="carrinho">
+            <span id="carrinho-contagem">0</span>
+            <img src="img/cart-icon.png" alt="Carrinho de Compras">
+        </div>
+    </header>
+    <main>
+        <section class="carrinho-items">
+            <h2>Seu Carrinho</h2>
+            <div id="carrinho-container">
+                <!-- Itens do carrinho serão exibidos aqui -->
+            </div>
+            <div class="carrinho-total">
+                <h3>Total: <span id="carrinho-total">0,00</span></h3>
+            </div>
+            <button onclick="limpaCarrinho()">Limpar Carrinho</button>
+        </section>
+        <section class="pagamento-form">
+            <h2>Pagamento com Cartão</h2>
+            <form id="form-pagamento" action="#" method="POST">
+                
+                <div class="pagamento-form__group">
+                    <label class="pagamento-form__label" for="bandeira">Bandeira do Cartão:</label>
+                    <select class="pagamento-form__input" id="bandeira" name="bandeira" required>
+                        <option value="" disabled selected>Selecione a bandeira</option>
+                        <option value="visa">Visa</option>
+                        <option value="mastercard">Mastercard</option>
+                        <option value="elo">Elo</option>
+                        </select>
+                </div>
+
+                <div class="pagamento-form__group">
+                    <label class="pagamento-form__label" for="nome-titular">Nome do Titular:</label>
+                    <input class="pagamento-form__input" type="text" id="nome-titular" name="nome-titular" required>
+                </div>
+
+                <div class="pagamento-form__group">
+                    <label class="pagamento-form__label" for="numero-cartao">Número do Cartão:</label>
+                    <input class="pagamento-form__input" type="text" id="numero-cartao" name="numero-cartao" maxlength="16" pattern="\d{13,16}" required>
+                </div>
+
+                <div class="pagamento-form__group">
+                    <label class="pagamento-form__label" for="validade">Data de Validade (MM/AA):</label>
+                    <input class="pagamento-form__input" type="text" id="validade" name="validade" placeholder="MM/AA" pattern="(0[1-9]|1[0-2])\/\d{2}" required>
+                </div>
+
+                <div class="pagamento-form__group">
+                    <label class="pagamento-form__label" for="cvv">Dígito Verificador (CVV):</label>
+                    <input class="pagamento-form__input" type="password" id="cvv" name="cvv" maxlength="4" pattern="\d{3,4}" required>
+                    </div>
+                
+                <button type="submit" class="pagamento-form__button">Finalizar Compra</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Minha Loja de Informática - Todos os direitos reservados</p>
+    </footer>
+    <script src="scripts/script.js"></script>
+</body>
+</html>
